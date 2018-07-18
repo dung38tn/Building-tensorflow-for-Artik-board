@@ -1,4 +1,4 @@
-#Building Tensorflow 1.9.0 from source for Artik board running ubuntu 16.04
+#Building Tensorflow 1.9.0 from source for Artik 710 board running ubuntu 16.04
 
 #1. Preparation:
 you need a few dependencies for the installation:
