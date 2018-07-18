@@ -2,24 +2,39 @@
 
 1. Preparation:
 you need a few dependencies for the installation:
+
 	sudo apt-get update
+	
 	sudo apt-get upgrade
+	
 	sudo apt-get install pkg-config zip unzip g++ zlib1g-dev default-jdk autoconf automake libtool python-dev python-pip python-setuptools git
 
 	sudo apt-get install python-opencv	
 
 2. Install a memory drive as swap for compiling (https://gist.github.com/EKami/9869ae6347f68c592c5b5cd181a3b205)
+
 	First, put insert your USB drive, and find the /dev/XXX path for the device.
+	
 		sudo blkid
+		
 	As an example, my drive's path was /dev/sda1
+	
 	Once you've found your device, unmount it by using the umount command.
+	
 		sudo umount /dev/XXX
+		
 	Format your USB drive with the following command (the swap area will be 2GB: 1024 * 2048 = 2097152):
+	
 		sudo dd if=/dev/zero of=/dev/sda bs=1024 count=2097152
+		
 	Find it back with this command:
+	
 		sudo fdisk -l
+		
 	Then flag your device to be swap:
+	
 		sudo mkswap /dev/XXX
+		
 	If the previous command outputted an alphanumeric UUID, copy that now. Otherwise, find the UUID by running blkid again. Copy the UUID associated with /dev/XXX
 		sudo blkid
 	Now edit your /etc/fstab file to register your swap file. (I'm a Vim guy, but Nano is installed by default)
